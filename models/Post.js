@@ -53,6 +53,10 @@ const commentSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
+        userName: {
+          type: String,
+          required: true,
+      },
         type: {
             type: Number,
             enum: [0, 1], // 0 for regular posts, 1 for reels
