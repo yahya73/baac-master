@@ -14,6 +14,9 @@ router.delete('/:postId', postController.deletePost);
 
 // Get all posts
 router.get('/', postController.getAllPosts);
+router.get('/reels', postController.getAllPostsByType);
+
+
 
 // Get a post by ID
 router.get('/:postId', postController.getPostById);

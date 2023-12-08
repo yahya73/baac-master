@@ -46,6 +46,16 @@ module.exports = {
           res.status(500).json(error);
         }
       },
+
+      getAllPostsByType: async (req, res) => {
+        try {
+          const posts = await Post.find({ type: 1 });
+          res.status(200).json(posts);
+        } catch (error) {
+          res.status(500).json(error);
+        }
+      },
+      
     
       getPostById: async (req, res) => {
         try {
