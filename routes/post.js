@@ -4,7 +4,7 @@ const router = express.Router();
 const postController = require('../controllers/postController'); 
 
 // Create a new post
-router.post('/', postController.createPost);
+router.post('/create/', postController.createPost);
 
 // Update a post by ID
 router.put('/:postId', postController.updatePost);
@@ -13,7 +13,7 @@ router.put('/:postId', postController.updatePost);
 router.delete('/:postId', postController.deletePost);
 
 // Get all posts
-router.get('/all', postController.getAllPosts);
+router.get('/', postController.getAllPosts);
 router.get('/reels', postController.getAllPostsByType);
 
 
