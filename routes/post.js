@@ -6,7 +6,7 @@ const postController = require('../controllers/postController');
 // Create a new post
 
 // Update a post by ID
-router.put('/', postController.updatePost);
+router.put('/update', postController.updatePost);
 
 // Delete a post by ID
 router.delete('/:postId', postController.deletePost);
