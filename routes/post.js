@@ -13,7 +13,7 @@ router.delete('/:postId', postController.deletePost);
 router.post('/', postController.createPost);
 
 // Get all posts
-router.get('/post', postController.getAllPosts);
+router.get('/', postController.getAllPosts);
 router.get('/reels', postController.getAllPostsByType);
 
 
