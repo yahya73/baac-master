@@ -47,7 +47,7 @@ const commentSchema = new mongoose.Schema({
         likes: [likeSchema],
         userImage: {
             type: String,
-            required: true,
+            required: false,
         },
         userId: {
             type: String,
