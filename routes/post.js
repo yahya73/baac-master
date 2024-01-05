@@ -16,7 +16,8 @@ router.post('/', postController.createPost);
 router.get('/', postController.getAllPosts);
 router.get('/reels', postController.getAllPostsByType);
 
-
+router.get('/Sorted', postController.getAllPostsSorted);
+router.get('/reelsSorted', postController.getAllPostsByTypeSorted);
 
 // Get a post by ID
 router.get('/:postId', postController.getPostById);
