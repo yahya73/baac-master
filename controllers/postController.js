@@ -47,17 +47,21 @@ module.exports = {
         }
       },
 
-      getAllPostsByType: async (req, res) => {
-        try {
-          const posts = await Post.find({ type: 1 });
-          res.status(200).json(posts);
-        } catch (error) {
-          res.status(500).json(error);
-        }
-      },
-      
-    
-      getPostById: async (req, res) => {
+  getAllPostsByType: async (req, res) => {
+    try {
+      // Find posts of type 1 and sort them by date in descending order
+      const posts = await Post.find({ type: 1 }).sort({ date: -1 });
+
+      // Send the sorted posts as JSON response
+      res.status(200).json(posts);
+    } catch (error) {
+      // Handle errors and send a 500 status code along with the error details
+      res.status(500).json(error);
+    }
+  },
+
+
+  getPostById: async (req, res) => {
         try {
           const post = await Post.findById(req.params.postId);
           if (!post) {
