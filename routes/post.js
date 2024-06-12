@@ -25,6 +25,6 @@ router.get('/:postId', postController.getPostById);
 router.put('/:postId/comments/:commentId',postController.updateCommentInPost)
 router.post('/:postId/comments', postController.addCommentToPost);
 router.delete('/:postId/comments/:commentId', postController.deleteCommentFromPost);
-router.put('/:postId/:iuserId/like', postController.likePost);
+router.put('/:postId/:userId/like', postController.likePost);
 
 module.exports = router;

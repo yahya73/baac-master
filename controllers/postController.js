@@ -155,16 +155,26 @@ deleteCommentFromPost: async (req, res) => {
 likePost: async (req, res) => {
   try {
     const postId = req.params.postId;
-    const userId = req.body.userId;
+    const userId = req.params.userId;
+
+    // Log the received parameters
+    console.log(`Received postId: ${postId}, userId: ${userId}`);
 
     const post = await Post.findById(postId);
 
     if (!post) {
+      console.log('Post not found.');
       return res.status(404).json({ error: 'Post not found.' });
     }
 
-    const isLiked = post.likes.some((like) => like.user === userId);
+    // Log the current likes on the post
+    console.log('Current likes on post:', post.likes);
 
+    // Check if the user has already liked the post
+    const isLiked = post.likes.some((like) => like.user === userId);
+    console.log(`Is post liked by user: ${isLiked}`);
+
+    // Update the post's likes
     const updatedPost = await Post.findByIdAndUpdate(
       postId,
       {
@@ -173,10 +183,13 @@ likePost: async (req, res) => {
       { new: true }
     );
 
+    // Log the updated likes on the post
+    console.log('Updated likes on post:', updatedPost.likes);
+
     const action = isLiked ? 'disliked' : 'liked';
     res.status(200).json(`The post has been ${action}`);
   } catch (err) {
-    console.error(err);
+    console.error('Error in likePost:', err);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 },
